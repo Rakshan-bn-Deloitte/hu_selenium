@@ -37,6 +37,26 @@ public class Main {
 
         }
 
+        //xpath-axes
+        if(driver.findElement(By.xpath("//i[@class='la la-minus']/parent::div")).isDisplayed()){
+            System.out.println(" xpath -axes“- ” for Adults");
+
+        }
+        if(driver.findElement(By.xpath("//input[@id = 'checkin']//self::*")).isDisplayed()){
+            System.out.println(" xpath -axes“- ” Check in - Calendar Icon");
+
+        }
+        if(driver.findElement(By.xpath("//div[@class='form-group']/child::input[@name='checkout']")).isDisplayed()){
+            System.out.println(" xpath -axes“- ” Check out - Calendar Icon");
+
+        }
+
+
+
+
+
+
+
 
 
     }
