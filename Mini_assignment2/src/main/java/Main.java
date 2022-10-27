@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.concurrent.TimeUnit;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -13,50 +15,52 @@ public class Main {
         //maximaize the window
         driver.manage().window().maximize();
         driver.get("https://phptravels.com/demo");
-        Actions actions = new Actions(driver);
+
 
        //comparing the title of the page
         String title="PHPTRAVELS";
         String title2=driver.getTitle();
         if(title.equals(title2)){
-            System.out.print("pass");
+            System.out.println("pass");
         }
         else{
-            System.out.print("Fail");
+            System.out.println("Fail");
         }
 
-        driver.findElement(By.xpath("//a[text()='Login']")).click();
-        //WebElement btnElement=driver.findElement(By.xpath("a[text()='Login']"));
-        //actions.contextClick(btnElement).perform();
+        //driver.findElement(By.linkText("Login"));
+
+
+        driver.get("https://phptravels.net/login");
 
         String title_login=driver.getTitle();
-        System.out.println(title_login);
+        if(title2.equals(title_login)){
+            System.out.println("Pass");
+        }
+        else{
+            System.out.println("Fail");
+        }
 
-
-        //switching back to the previous window
-
-        String parentWindow=driver.getWindowHandle();
-        driver.switchTo().window(parentWindow);
-
-        //geting the url of the current page
-        String url;
-        url = driver. getCurrentUrl();
-        System.out.println(url);
-
-        //to click the pricing option
-        WebElement btnElement_pricing=driver.findElement(By.xpath("//a[text()='Pricing']"));
-        actions.contextClick(btnElement_pricing).perform();
-
-        //navigating back to the home page
+        //codes to navigating back to the home page
 
         driver.navigate().back();
 
-        //refresing the page
-       driver.navigate().refresh();
+        // geting the url of the current page
+        String url;
+        url = driver. getCurrentUrl();
+        System.out.println("Current url of the page is "+url);
+       //click the pricing option
+        driver.findElement(By.linkText("Pricing")).click();
+
+        String url_login;
+        url_login = driver. getCurrentUrl();
+        System.out.println("Current url of the page is "+url_login);
+        System.out.println("pricing menu is clicked");
+        driver.navigate().back();
 
 
-      //code to close the brower
-        driver.quit();
-
+        // refresh the page
+        driver.navigate().refresh();;
+        //close the browser window
+        driver.close();
     }
 }
