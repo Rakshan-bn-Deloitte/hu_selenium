@@ -50,6 +50,10 @@ public class Main {
             System.out.println(" xpath -axes“- ” Check out - Calendar Icon");
 
         }
+        if(driver.findElement(By.xpath("//div/child::i[@class='la la-plus']")).isDisplayed()){
+            System.out.println(" xpath -axes “- ” for Adults");
+
+        }
 
 
 
