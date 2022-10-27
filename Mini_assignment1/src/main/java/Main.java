@@ -32,6 +32,11 @@ public class Main {
             System.out.println("Relative xpath for login button");
 
         }
+        if(driver.findElement(By.xpath("/html/body/header/div/div/div/div/div/div/div/div/nav/ul/li/a[@title='flights']")).isDisplayed()){
+            System.out.println("absolute  xpath for flights");
+
+        }
+
 
 
     }
