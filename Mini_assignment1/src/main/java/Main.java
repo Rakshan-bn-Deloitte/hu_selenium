@@ -38,6 +38,7 @@ public class Main {
         }
 
         //xpath-axes
+
         if(driver.findElement(By.xpath("//i[@class='la la-minus']/parent::div")).isDisplayed()){
             System.out.println(" xpath -axes“- ” for Adults");
 
