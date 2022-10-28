@@ -32,11 +32,18 @@ public class Main {
 
         //senario-3
 
-//        driver.get("https://the-internet.herokuapp.com/");
-//        driver.findElement(By.xpath("/html/body/div[2]/div/ul/li[29]/a")).click();
-//        driver.findElement(By.linkText("JavaScript Alerts")).click();
-//        driver.findElement(By.xpath("/html/body/div[2]/div/div/ul/li[3]/button")).click();
-//        driver.findElement(By.linkText("Click for JS Prompt")).click();
+        driver.get("https://the-internet.herokuapp.com/");
+        driver.findElement(By.xpath("/html/body/div[2]/div/ul/li[29]/a")).click();
+        driver.findElement(By.linkText("JavaScript Alerts")).click();
+        String currentUrl = driver. getCurrentUrl();
+        driver.get(currentUrl);
+        driver.findElement(By.xpath("/html/body/div[2]/div/div/ul/li[3]/button")).click();
+    //senario-4
+        driver.get("https://www.goibibo.com/");
+        
+
+
+
 
     }
 }
