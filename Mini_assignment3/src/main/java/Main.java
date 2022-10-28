@@ -52,6 +52,13 @@ public class Main {
 
     //senario-4
         //driver.get("https://www.goibibo.com/");
+        WebDriver driver4=new ChromeDriver();
+        driver4.get( "https://www.goibibo.com/");
+        driver4.manage().window().maximize();
+        WebElement webElement = driver4.findElement(By.id("sc-giYglK eCwiKJ fswWidgetPlaceholder"));
+
+        Actions action = new Actions(driver4);
+        action.moveToElement(webElement).click().perform();
 
 
 
