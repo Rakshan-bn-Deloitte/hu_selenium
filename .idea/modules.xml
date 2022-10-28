@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Mini_assignment1/Mini_assignment1.iml" filepath="$PROJECT_DIR$/Mini_assignment1/Mini_assignment1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Mini_assignment2/Mini_assignment2.iml" filepath="$PROJECT_DIR$/Mini_assignment2/Mini_assignment2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mini_assignment3/Mini_assignment3.iml" filepath="$PROJECT_DIR$/Mini_assignment3/Mini_assignment3.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/hu_selenium.iml" filepath="$PROJECT_DIR$/.idea/hu_selenium.iml" />
     </modules>
   </component>
