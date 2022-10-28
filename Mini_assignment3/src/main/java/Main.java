@@ -1,3 +1,4 @@
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,10 +38,16 @@ public class Main {
         driver.findElement(By.linkText("JavaScript Alerts")).click();
         String currentUrl = driver. getCurrentUrl();
         driver.get(currentUrl);
-        driver.findElement(By.xpath("/html/body/div[2]/div/div/ul/li[3]/button")).click();
+        //driver.findElement(By.xpath("/html/body/div[2]/div/div/ul/li[3]/button")).click();
+        driver.findElement(By.xpath("//button[@onclick='jsPrompt()']")).click();
+        Alert al = driver.switchTo().alert();
+        al.sendKeys("Test");
+        System.out.println(al.getText());
+        al.accept();
+
     //senario-4
-        driver.get("https://www.goibibo.com/");
-        
+        //driver.get("https://www.goibibo.com/");
+
 
 
 
