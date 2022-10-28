@@ -55,10 +55,24 @@ public class Main {
         WebDriver driver4=new ChromeDriver();
         driver4.get( "https://www.goibibo.com/");
         driver4.manage().window().maximize();
-        WebElement webElement = driver4.findElement(By.id("sc-giYglK eCwiKJ fswWidgetPlaceholder"));
+        WebElement webElement = driver4.findElement(By.xpath("//*[@id=\"root\"]/div[3]/div/div/ul/li[2]/span[2]"));
 
         Actions action = new Actions(driver4);
         action.moveToElement(webElement).click().perform();
+        WebElement from_city= driver.findElement(By.xpath("//*[@id=\"root\"]/div[4]/div/div/div[1]/div[1]/div/div/p"));
+        WebElement to_city=driver.findElement(By.xpath("//*[@id=\"root\"]/div[3]/div/div/div[1]/div[2]/div/div/p"));
+
+       from_city.sendKeys("New York ");
+        to_city.sendKeys("Seattle");
+
+
+
+
+       // By from_city=By.xpath("//*[@id=\"root\"]/div[4]/div/div/div[1]/div[1]/div/div/p");
+       // By to_city=By.xpath("//*[@id=\"root\"]/div[3]/div/div/div[1]/div[2]/div/div/p");
+
+
+
 
 
 
