@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\rakbn\\Desktop\\webdriver_basics\\chromedriver.exe");
         WebDriver driver=new ChromeDriver();
         //maximaize the window
@@ -34,16 +34,21 @@ public class Main {
         //senario-3
 
         driver.get("https://the-internet.herokuapp.com/");
-        driver.findElement(By.xpath("/html/body/div[2]/div/ul/li[29]/a")).click();
-        driver.findElement(By.linkText("JavaScript Alerts")).click();
-        String currentUrl = driver. getCurrentUrl();
-        driver.get(currentUrl);
-        //driver.findElement(By.xpath("/html/body/div[2]/div/div/ul/li[3]/button")).click();
+      //Click on JavaScript
+        driver.findElement(By.xpath("//a[@href='/javascript_alerts']")).click();
         driver.findElement(By.xpath("//button[@onclick='jsPrompt()']")).click();
-        Alert al = driver.switchTo().alert();
-        al.sendKeys("Test");
-        System.out.println(al.getText());
-        al.accept();
+        Thread.sleep(3000);
+     //Comparing the Text Entered
+
+        String str = "Test";
+        driver.switchTo().alert().sendKeys(str);
+        driver.switchTo().alert().accept();
+        String str1 = driver.findElement(By.xpath("//p[@id='result']")).getText();
+        System.out.println(str);
+        if (str.equals("You have entered: " + str)) {
+            System.out.println("Similar text entered,pass");
+        }
+
 
     //senario-4
         //driver.get("https://www.goibibo.com/");
