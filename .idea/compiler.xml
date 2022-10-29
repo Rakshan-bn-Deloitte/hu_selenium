@@ -7,14 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Mini_assignment3" />
+        <module name="Mini_assignment4" />
         <module name="Mini_assignment1" />
         <module name="Mini_assignment2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ass" target="19" />
       <module name="Mini_assignment1" target="1.5" />
       <module name="Mini_assignment2" target="19" />
       <module name="Mini_assignment3" target="19" />
+      <module name="Mini_assignment4" target="19" />
       <module name="miniAssignment3" target="1.5" />
     </bytecodeTargetLevel>
   </component>
