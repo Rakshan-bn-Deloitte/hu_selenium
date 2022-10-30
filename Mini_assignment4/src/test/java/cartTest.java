@@ -134,23 +134,8 @@ public class cartTest {
             System.out.println("Failed");
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //*[@id="continue-shopping"]
-
-
+        
     }
 
 //    @Test(priority = 2)
