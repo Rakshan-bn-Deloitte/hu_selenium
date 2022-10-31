@@ -153,12 +153,23 @@ public class cartTest extends setUp {
     @Test(priority = 8)
     void clickingCheckOutButton(){
         driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[1]/div[3]/a")).click();
-       driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div[2]/button[2]")).click();
+
+        //driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div[2]/button[1]")).click();
+
+        driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div[2]/button[2]")).click();
+
+
+
+
+
+
+
     }
 
     @Test(priority = 9)
 
     void fllingCheckOutInformation() throws IOException {
+
         String excelpath2="C:\\Users\\rakbn\\Desktop\\git\\hu_selenium\\Mini_assignment4\\src\\dataFiles\\loginData.xlsx";
         FileInputStream fs2 = new FileInputStream(excelpath2);
         //Creating a workbook
@@ -184,6 +195,29 @@ public class cartTest extends setUp {
     @Test(priority = 10)
     void finishShoping(){
         driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/form/div[2]/input")).click();
+
+       //verifying cart price
+//        String price1=driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div[1]/div[3]/div[2]/div[2]/div")).getText();
+//
+//        price1 =price1.replace("$","");
+//
+//        int priceValue1 = Integer.parseInt(price1.substring(0,price1.indexOf(".")));
+//
+//
+//        String price2=driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div[1]/div[4]/div[2]/div[2]/div")).getText();
+//        price2 =price2.replace("$","");
+//        int priceValue2 = Integer.parseInt(price2.substring(0,price1.indexOf(".")));
+//
+//        int totalPrice=priceValue1+priceValue2;
+//
+//
+//        String totalPrice2=driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div[2]/div[5]")).getText();
+//        price2 =totalPrice2.replace("$","");
+//        int totalPriceCheckOut = Integer.parseInt(price2.substring(0,price1.indexOf(".")));
+//        if(totalPriceCheckOut==totalPrice){
+//            System.out.println("Amount is verified");
+//        }
+
 
         driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div[2]/div[8]/button[2]")).click();
 
