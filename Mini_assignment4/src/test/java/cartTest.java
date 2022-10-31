@@ -48,13 +48,14 @@ public class cartTest extends setUp {
 
     @Test(priority = 2)
     void addToCart() throws IOException, InterruptedException {
-        WebElement filter = driver.findElement(By.xpath("//select[@class='product_sort_container']"));
+        WebElement filter = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/div[2]/span/select"));
         filter.click();
+
         Thread.sleep(2000);
-        WebElement pricesort = driver.findElement(By.xpath("(//select[@class='product_sort_container']/option)[4]"));
+        WebElement pricesort = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/div[2]/span/select/option[4]"));
         pricesort.click();
         Thread.sleep(2000);
-        WebElement highestproduct = driver.findElement(By.xpath("(//div[@class='inventory_list']/div[@class='inventory_item'])[1]"));
+        WebElement highestproduct = driver.findElement(By.xpath("//div[@class='inventory_list']/div[@class='inventory_item'][1]"));
         try {
             Assert.assertTrue(highestproduct.isDisplayed()&&highestproduct.isEnabled());
             System.out.println("Highest product is displayed");
@@ -62,15 +63,23 @@ public class cartTest extends setUp {
             System.out.println("Highest product is not displayed");
         }
         Thread.sleep(2000);
-        WebElement addtoCartEnable = driver.findElement(By.xpath("//button[@id='add-to-cart-sauce-labs-fleece-jacket']"));
+        WebElement addtoCartEnable = driver.findElement(By.xpath("//div[@class='inventory_list']/div[@class='inventory_item'][1]"));
         try {
             Assert.assertTrue(addtoCartEnable.isDisplayed()&&addtoCartEnable.isEnabled());
             System.out.println("add to cart button is enabled and displayed");
         } catch (Exception e) {
             System.out.println("add to cart button is not enabled & not displayed");
         }
-
-
+        Thread.sleep(2000);
+        String ProductPriceVerify = driver.findElement(By.xpath("//div[@class='inventory_item_price'][1]")).getText();
+        int limit = 100;
+        ProductPriceVerify =ProductPriceVerify.replace("$","");
+        int priceValue = Integer.parseInt(ProductPriceVerify.substring(0,ProductPriceVerify.indexOf(".")));
+        if( limit > priceValue)
+            System.out.println("It is less than 100");
+        else
+            System.out.println("It i greater tahn 100");
+        Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[1]/div[2]/div[2]/button")).click();
 
 
@@ -79,20 +88,54 @@ public class cartTest extends setUp {
 
     @Test(priority = 3)
     void chekingRemoveButton() {
-        driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[1]/div[2]/div[2]/button")).click();
+        WebElement removeButton=driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[1]/div[2]/div[2]/button"));
+
+        try {
+            Assert.assertTrue(removeButton.isDisplayed() && removeButton.isEnabled());
+            System.out.println("Remove Button is enabled & displayed");
+        } catch (Exception e) {
+            System.out.println("Remove Button is not enabled & displayed");
+        }
+        removeButton.click();
+        //driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[1]/div[2]/div[2]/button")).click();
     }
     @Test(priority = 4)
-    void clickingOnCartIcon(){
-        driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[1]/div[3]/a")).click();
+    void clickingOnCartIcon() throws InterruptedException {
+
+
+        WebElement cartIcon = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[1]/div[3]/a"));
+        try {
+            Assert.assertTrue(cartIcon.isDisplayed() && cartIcon.isEnabled());
+            System.out.println("cart icon is enabled & displayed");
+        } catch (Exception e) {
+            System.out.println("cart icon is  not enabled & displayed");
+
+            driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[1]/div[3]/a")).click();
+        }
     }
     @Test(priority = 5)
     void clickingOnContinueShoping(){
+        driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[1]/div[3]/a")).click();
         driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div[2]/button[1]")).click();
 
     }
     @Test(priority = 6)
-    void AddingAnotherElementToCart(){
-        driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[5]/div[2]/div[2]/button")).click();
+    void AddingAnotherElementToCart() throws InterruptedException {
+        WebElement pricesortt = driver.findElement(By.xpath("//select[@class='product_sort_container']/option[3]"));
+        pricesortt.click();
+        Thread.sleep(2000);
+        WebElement leastproduct = driver.findElement(By.xpath("//div[@class='inventory_list']/div[@class='inventory_item'][1]"));
+        try {
+            Assert.assertTrue(leastproduct.isDisplayed() && leastproduct.isEnabled());
+            System.out.println("least product is displayed");
+        } catch (Exception e) {
+            System.out.println("least product is not displayed");
+        }
+
+        Thread.sleep(2000);
+        WebElement leastExpensiveProduct = driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[1]/div[2]/div[2]/button"));
+        leastExpensiveProduct.click();
+        //driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[5]/div[2]/div[2]/button")).click();
     }
     @Test(priority = 7)
     void checkinForCartCount(){
