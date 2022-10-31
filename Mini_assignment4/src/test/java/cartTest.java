@@ -4,7 +4,9 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -45,7 +47,28 @@ public class cartTest extends setUp {
     }
 
     @Test(priority = 2)
-    void addToCart() throws IOException {
+    void addToCart() throws IOException, InterruptedException {
+        WebElement filter = driver.findElement(By.xpath("//select[@class='product_sort_container']"));
+        filter.click();
+        Thread.sleep(2000);
+        WebElement pricesort = driver.findElement(By.xpath("(//select[@class='product_sort_container']/option)[4]"));
+        pricesort.click();
+        Thread.sleep(2000);
+        WebElement highestproduct = driver.findElement(By.xpath("(//div[@class='inventory_list']/div[@class='inventory_item'])[1]"));
+        try {
+            Assert.assertTrue(highestproduct.isDisplayed()&&highestproduct.isEnabled());
+            System.out.println("Highest product is displayed");
+        } catch (Exception e) {
+            System.out.println("Highest product is not displayed");
+        }
+        Thread.sleep(2000);
+        WebElement addtoCartEnable = driver.findElement(By.xpath("//button[@id='add-to-cart-sauce-labs-fleece-jacket']"));
+        try {
+            Assert.assertTrue(addtoCartEnable.isDisplayed()&&addtoCartEnable.isEnabled());
+            System.out.println("add to cart button is enabled and displayed");
+        } catch (Exception e) {
+            System.out.println("add to cart button is not enabled & not displayed");
+        }
 
 
         driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[1]/div[2]/div[2]/button")).click();
