@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Mini_assignment5" />
         <module name="Mini_assignment3" />
         <module name="Mini_assignment4" />
         <module name="Mini_assignment1" />
@@ -18,6 +19,7 @@
       <module name="Mini_assignment2" target="19" />
       <module name="Mini_assignment3" target="19" />
       <module name="Mini_assignment4" target="19" />
+      <module name="Mini_assignment5" target="19" />
       <module name="miniAssignment3" target="1.5" />
     </bytecodeTargetLevel>
   </component>
