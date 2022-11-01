@@ -6,6 +6,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterTest;
 
 import java.io.FileInputStream;
@@ -18,6 +19,8 @@ public class loginPage {
         this.driver=driver;
     }
     public void login(WebDriver driver) throws IOException {
+
+
 
         driver.get("https://www.saucedemo.com/");
 
